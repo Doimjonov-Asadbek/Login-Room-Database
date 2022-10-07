@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+   >
+    <data>
+        <variable
+            name="view"
+            type="com.example.logindb.viewmodel.RegisterViewModel" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SIGN UP"
+        android:id="@+id/txt"
+        android:textSize="25sp"
+        android:textAlignment="gravity"
+        android:gravity="center"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtfield"
+        android:layout_marginTop="20dp"
+        app:startIconDrawable="@drawable/ic_baseline_person_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:counterMaxLength="20"
+        app:counterEnabled="true"
+        app:layout_constraintTop_toBottomOf="@id/txt"
+        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/name"
+            android:hint="Enter a Name"
+            android:text="@={view.name}"
+            android:layout_height="wrap_content"
+            android:inputType="text"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtfield2"
+        android:layout_marginTop="20dp"
+        app:helperTextTextColor="@color/red"
+        app:startIconDrawable="@drawable/ic_baseline_email_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtfield"
+        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/mail"
+            android:hint="Enter a EMAIL"
+            android:text="@={view.email}"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textField3"
+        android:layout_marginTop="25dp"
+        app:helperTextTextColor="@color/red"
+        app:startIconDrawable="@drawable/ic_baseline_phone_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtfield2"
+        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/no"
+            android:text="@={view.phone}"
+            android:hint="Enter a Mobile NO"
+            android:layout_height="wrap_content"
+            android:inputType="phone"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textpass"
+        app:helperTextTextColor="@color/red"
+        android:layout_marginTop="25dp"
+        app:endIconMode="password_toggle"
+        app:startIconDrawable="@drawable/ic_baseline_lock_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:counterMaxLength="20"
+        app:counterEnabled="true"
+        app:layout_constraintTop_toBottomOf="@id/textField3"
+        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/pass"
+            android:hint="Enter a Password"
+            android:text="@={view.password}"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtfield5"
+        android:layout_marginTop="25dp"
+        app:endIconMode="password_toggle"
+        app:startIconDrawable="@drawable/ic_baseline_lock_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:counterMaxLength="20"
+        app:counterEnabled="true"
+        app:helperTextTextColor="@color/red"
+        app:layout_constraintTop_toBottomOf="@id/textpass"
+        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:id="@+id/confirmpassword"
+            android:hint="Confirm Password"
+            android:text="@={view.confirmPassword}"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:id="@+id/submit"
+        android:onClick="@{()->view.submitButton()}"
+        android:layout_marginTop="5dp"
+        android:text="SUBMIT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtfield5"
+         />
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/check"
+        android:checked="@={view.check}"
+        android:text="TERMS and CONDITIONS"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/txtfield5"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
